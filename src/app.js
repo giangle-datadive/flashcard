@@ -2,13 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import * as Redux from 'redux';
 import * as reducers from './reducers';
-import App from './components/App';
-import VisibleDeck from './components/VisibleDeck';
 import {Provider} from 'react-redux';
 import {Router, Route, browserHistory} from 'react-router';
 import {syncHistoryWithStore, routerReducer} from 'react-router-redux';
 import * as localStore from './localStore';
 reducers.routing = routerReducer;
+
+import App from './components/App';
+import VisibleDeck from './components/VisibleDeck';
+import NewCardModal from './components/NewCardModal';
 
 const store = Redux.createStore(Redux.combineReducers(reducers), localStore.get());
 const history = syncHistoryWithStore(browserHistory, store);
@@ -19,7 +21,9 @@ function run() {
         <Provider store={store}>
             <Router history={history}>
                 <Route path="/" component={App}>
-                    <Route path="/deck/:deckId" component={VisibleDeck}/>
+                    <Route path="/deck/:deckId" component={VisibleDeck}>
+                        <Route path="/deck/:deckId/new" component={NewCardModal}/>
+                    </Route>
                 </Route>
             </Router>
         </Provider>,

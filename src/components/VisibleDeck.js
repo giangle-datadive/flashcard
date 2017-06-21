@@ -1,10 +1,20 @@
 import React from 'react';
-class VisibleDeck extends React.Component {
-    render() {
-        return (
-            <div>Content will go here</div>
-        );
-    }
-}
+import {connect} from 'react-redux';
 
-export default VisibleDeck;
+import Card from './Card';
+
+const mapStateToProps = ({cards}, {params: {deckId}}) => ({
+    cards: cards.filter(card => card.deckId === deckId),
+});
+
+const VisibleDeck = ({cards, children}) => {
+    console.log(cards);
+    return (
+        <div>
+            {cards.map((card, index) => <Card card={card} key={index}/>)}
+            {children}
+        </div>
+    );
+};
+
+export default connect(mapStateToProps)(VisibleDeck);
