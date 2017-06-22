@@ -9,7 +9,7 @@ import * as localStore from './localStore';
 reducers.routing = routerReducer;
 
 import App from './components/App';
-import VisibleDeck from './components/VisibleDeck';
+import VisibleCard from './components/VisibleCard';
 import NewCardModal from './components/NewCardModal';
 import EditCardModal from './components/EditCardModal';
 
@@ -22,7 +22,7 @@ function run() {
         <Provider store={store}>
             <Router history={history}>
                 <Route path="/" component={App}>
-                    <Route path="/deck/:deckId" component={VisibleDeck}>
+                    <Route path="/deck/:deckId" component={VisibleCard}>
                         <Route path="/deck/:deckId/new" component={NewCardModal}/>
                         <Route path="/deck/:deckId/edit/:cardId" component={EditCardModal}/>
                     </Route>
