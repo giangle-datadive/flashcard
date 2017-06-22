@@ -3,7 +3,9 @@ export const showAddDeck = () => ({type: 'SHOW_ADD_DECK'});
 export const hideAddDeck = () => ({type: 'HIDE_ADD_DECK'});
 
 export const addCard = card => ({type: 'ADD_CARD', data: card});
-export const editCard = card => ({type: 'EDIT_CARD', data: card});
+export const updateCard = card => ({type: 'EDIT_CARD', data: card});
 export const deleteCard = cardId => ({type: 'DELETE_CARD', data: cardId});
 
 export const filterCards = query => ({type: 'FILTER_CARDS', data: query});
+
+export const setShowBack = back => ({type: 'SHOW_BACK', data: back});

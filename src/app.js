@@ -12,6 +12,7 @@ import App from './components/App';
 import VisibleCard from './components/VisibleCard';
 import NewCardModal from './components/NewCardModal';
 import EditCardModal from './components/EditCardModal';
+import StudyModal from './components/StudyModal';
 
 const store = Redux.createStore(Redux.combineReducers(reducers), localStore.get());
 const history = syncHistoryWithStore(browserHistory, store);
@@ -25,6 +26,7 @@ function run() {
                     <Route path="/deck/:deckId" component={VisibleCard}>
                         <Route path="/deck/:deckId/new" component={NewCardModal}/>
                         <Route path="/deck/:deckId/edit/:cardId" component={EditCardModal}/>
+                        <Route path="/deck/:deckId/study" component={StudyModal}/>
                     </Route>
                 </Route>
             </Router>

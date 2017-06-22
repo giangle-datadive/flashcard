@@ -7,7 +7,7 @@ const mapStateToProps = ({cards}, {params: {cardId}}) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    onSave: card => dispatch(editCard(card)),
+    onSave: card => dispatch(updateCard(card)),
     onDelete: cardId => dispatch(deleteCard(cardId))
 });
 
