@@ -8,7 +8,6 @@ const mapStateToProps = ({cards}, {params: {deckId}}) => ({
 });
 
 const VisibleDeck = ({cards, children}) => {
-    console.log(cards);
     return (
         <div>
             {cards.map((card, index) => <Card card={card} key={index}/>)}
